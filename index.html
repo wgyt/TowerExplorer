@@ -482,6 +482,9 @@
                     if (value >= 0.01) {
                         return value.toFixed(4).replace(/\.?0+$/, '');
                     }
+	            if (value >= 0.00000001) {
+                        return value.toFixed(8).replace(/\.?0+$/, '');
+                    }
                     return value.toExponential(3);
                 },
 
