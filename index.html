@@ -495,7 +495,7 @@
                     this.refreshKey++; // 强制重新渲染图标
                     try {
                         this.currentTime = Date.now();
-                        await this.loadSwaps(true, 0, 15);
+                        await this.loadSwaps(true, 0, 10);
                     } catch (error) {
                         console.error('刷新失败:', error);
                     }
@@ -513,7 +513,7 @@
 
                 async loadNextPage() {
                     this.page++;
-                    await this.loadSwaps(false, this.page, 15);
+                    await this.loadSwaps(false, this.page, 10);
                 },
             }
         }).mount('#app');
