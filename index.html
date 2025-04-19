@@ -480,7 +480,7 @@
                         return value.toExponential(2);
                     }
                     if (value >= 0.01) {
-                        return value.toFixed(4).replace(/\.?0+$/, '');
+                        return value.toFixed(6).replace(/\.?0+$/, '');
                     }
 	            if (value >= 0.00000001) {
                         return value.toFixed(8).replace(/\.?0+$/, '');
