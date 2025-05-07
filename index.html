@@ -103,8 +103,8 @@
                     currentTime: Date.now(),
                     isDarkMode: true,
                     pools: {
-                        'bbn1qjn06jt7zjhdqxgud07nylkpgnaurq6x6vad38vztwxec4rr5ntsnn4dd3': { name: 'BABY/USDC · XYK · 0.3%', quote: 'ibc/65D0BEC6DAD96C7F5043D1E54E54B6BB5D5B3AEC3FF6CEBB75B9E059F3580EA3' },
-                        'bbn1n9jy4xlk00p2w2rdeumxznzsxrphx8lh95v39g0wkslchpmaqcvsyyxqu4': { name: 'BABY/LBTC · XYK · 0.3%', quote: 'ibc/89EE10FCF78800B572BAAC7080AEFA301B5F3BBC51C5371E907EB129C5B900E7' }
+                        'bbn1qjn06jt7zjhdqxgud07nylkpgnaurq6x6vad38vztwxec4rr5ntsnn4dd3': { name: 'BABY/USDC · XYK · 0.3%', base: 'ubbn', quote: 'ibc/65D0BEC6DAD96C7F5043D1E54E54B6BB5D5B3AEC3FF6CEBB75B9E059F3580EA3' },
+                        'bbn1n9jy4xlk00p2w2rdeumxznzsxrphx8lh95v39g0wkslchpmaqcvsyyxqu4': { name: 'BABY/LBTC · XYK · 0.3%', base: 'ubbn', quote: 'ibc/89EE10FCF78800B572BAAC7080AEFA301B5F3BBC51C5371E907EB129C5B900E7' }
                     },
                     selectedPool: "bbn1qjn06jt7zjhdqxgud07nylkpgnaurq6x6vad38vztwxec4rr5ntsnn4dd3",
                     assets: { // 资产映射表
@@ -362,18 +362,15 @@
                                 };
                             }
 
-                            if (txDetail.tx_response.txhash == "BD443D333BF2E2A0696D1C56C89B59DBFA4C795F6ED4EB68FD22254A9CB0EEE1") {
-                                console.log(txDetail.tx.body.messages);
-                            }
                         }
                         // 优先使用funds数据（如果存在）
-                        if (txDetail.tx.body.messages[0]?.funds?.length > 0) {
+                        /*if (txDetail.tx.body.messages[0]?.funds?.length > 0) {
                             const fund = txDetail.tx.body.messages[0].funds[0];
                             result.input = {
                                 amount: this.formatTokenAmount(fund.amount, this.assets[fund.denom].decimal),
                                 denom: this.assets[fund.denom] || fund.denom
                             };
-                        }
+                        }*/
 
                         const inputAmt = Math.abs(parseFloat(result.input.amount));
                         const outputAmt = Math.abs(parseFloat(result.output.amount));
